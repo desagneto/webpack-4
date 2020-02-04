@@ -1,11 +1,14 @@
 import '../css/index.css'
-import text from './text';
 
-if (module.hot){
-    module.hot.accept('./text.js', function () {
-        console.log('recargado caliente');
-        text;
-    })
-}
+import search from './search';
+import render from './render';
 
-text;
+const id = prompt('test babel?');
+
+search(id).then((data) => {
+    render(data);
+}).catch(()=>{
+    console.log('error');
+});
+
+
